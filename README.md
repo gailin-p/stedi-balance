@@ -16,4 +16,4 @@ Because the serial numbers in the incoming customer data are incorrect, we can't
 
 To create the step_trainer_trusted data, we join the step_trainer_landing table on the accelerometer_trusted table, which we know only has customers who have accelerometer data and have agreed to share their data with research. We keep the `user` field from the `accelerometer` table, since it could be useful in the future to map to `customers` (since the serialNumber is incorrect).
 
-To create the machine_learning_curated table, we again join the step_trainer_trusted table on the accelerometer_trusted table using timestamps, but now we keep all the columns that will be used for research and drop `user`, since it won't be used in the machine learning pipeline. 
+To create the machine_learning_curated table, we again join the step_trainer_trusted table on the accelerometer_trusted table using timestamps, but now we keep all the columns that will be used for research and drop `user`, since it won't be used in the machine learning pipeline. This also will help maintain user privacy during analysis. 
